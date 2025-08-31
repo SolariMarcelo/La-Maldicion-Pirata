@@ -1,6 +1,7 @@
 # --- Imágenes ---
 IMAGES = {
     "menu_bg": "assets/images/menu_bg.jpg",
+    "icon": "assets/images/icon.png",
 }
 
 # --- Sonidos ---
