@@ -1,6 +1,6 @@
 import pygame
 import sys
-from settings import IMAGES, SOUNDS, BLUE, WHITE, FPS, SCREEN_HEIGHT, SCREEN_WIDTH,MENU_FONT_SIZE,MENU_MARGIN
+from settings import IMAGES, SOUNDS, BLUE, WHITE, FPS, SCREEN_HEIGHT, SCREEN_WIDTH,MENU_FONT_SIZE,MENU_MARGIN,FONTS
 #.scene porque esta dentro del mismo paquete
 from .scene import Scene
 
@@ -9,7 +9,14 @@ class Menu(Scene):
         super().__init__(screen) 
         self.screen = screen
         self.clock = pygame.time.Clock() # Velocidad de actualización (FPS).
-        self.font = pygame.font.Font(None, MENU_FONT_SIZE) 
+        try:
+            self.font = pygame.font.Font(FONTS["main_font"], MENU_FONT_SIZE)
+        except FileNotFoundError:
+            try:
+                self.font = pygame.font.SysFont("Arial", MENU_FONT_SIZE)
+            except:
+                self.font = pygame.font.Font(None, MENU_FONT_SIZE)
+
         self.options = ["Iniciar Partida", "Salir"]  # Opciones
         self.selected_index = 0 # Opcion seleccionada
         self.background = pygame.image.load(IMAGES["menu_bg"]).convert_alpha()

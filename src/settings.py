@@ -11,6 +11,10 @@ SOUNDS = {
     "menu_salir":"assets/sounds/menu_salir.mp3",
 }
 
+FONTS = {
+    "main_font": "assets/fonts/main_font.ttf"
+}
+
 # --- Configuración general ---
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
