@@ -40,6 +40,10 @@ pip install pygame
 
 ### 👨‍💻 Equipo
 
+| [<img src="https://avatars.githubusercontent.com/u/85370846?v=4" width="115"><br><sub>Facundo Aldo Rodriguez</sub>](https://github.com/Facundo-A-R) | [<img src="https://avatars.githubusercontent.com/u/131069303?v=4" width="115"><br><sub>Thiago Mauricio Guiñazu</sub>](https://github.com/Ironicocos) | [<img src="https://avatars.githubusercontent.com/u/100870191?v=4" width="115"><br><sub>Marcelo Solari</sub>](https://github.com/SolariMarcelo) | [<img src="https://avatars.githubusercontent.com/u/104381661?v=4" width="115"><br><sub>Lucas Emmanuel Ugarte</sub>](https://github.com/Lucas204058) | [<img src="https://avatars.githubusercontent.com/u/138830413?v=4" width="115"><br><sub>Sebastián Matías Puche</sub>](https://github.com/SebasTerco73) |
+| :---: | :---: | :---: | :---: | :---: |
+
 <img width="400" height="250" alt="image" src="https://github.com/user-attachments/assets/1afd8a49-2d79-45b1-85e3-c3092bb456fc" />
+
 
 
