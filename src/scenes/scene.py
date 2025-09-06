@@ -1,10 +1,21 @@
 import pygame
 import sys
+from settings import FONTS, MENU_FONT_SIZE
 
 # Padre de todas las pantallas, menu, nivel, pausa, etc
 class Scene:
     def __init__(self, screen):
         self.screen = screen
+        self.font = self.load_font()
+
+    def load_font(self):
+        try:
+            return pygame.font.Font(FONTS["main_font"], MENU_FONT_SIZE)
+        except FileNotFoundError:
+            try:
+                return pygame.font.SysFont("Arial", MENU_FONT_SIZE)
+            except:
+                return pygame.font.Font(None, MENU_FONT_SIZE)
 
     def handle_global_events(self, event):
         if event.type == pygame.KEYDOWN:

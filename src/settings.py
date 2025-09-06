@@ -1,6 +1,6 @@
 # --- Imágenes ---
 IMAGES = {
-    "menu_bg": "assets/images/menu_bg.jpg",
+    "menu_bg": "assets/images/menu_bg.png",
     "icon": "assets/images/icon.png",
 }
 
@@ -22,5 +22,6 @@ SCREEN_HEIGHT = 600
 FPS = 60
 WHITE = (255, 255, 255)
 BLUE = (0, 0, 255)
+RED = (120, 6, 6)
 MENU_FONT_SIZE = 40
 MENU_MARGIN = 20
