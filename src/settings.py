@@ -21,6 +21,10 @@ SOUNDS_MENU = {
     "menu_salir":"assets/sounds/menu_salir.mp3",
 }
 
+SOUNDS_LVL1 = {
+    "level1_sound": "assets/sounds/lvl1_sound.mp3",
+}
+
 FONTS = {
     "main_font": "assets/fonts/main_font.ttf"
 }

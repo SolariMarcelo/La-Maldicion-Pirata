@@ -1,6 +1,6 @@
 import pygame
 import sys
-from settings import SCREEN_WIDTH, SCREEN_HEIGHT, FPS, IMAGES_LVL1
+from settings import SCREEN_WIDTH, SCREEN_HEIGHT, FPS, IMAGES_LVL1, SOUNDS_LVL1
 from .scene import Scene
 from characters.player import Player
 
@@ -10,6 +10,7 @@ class Level1(Scene):
         self.clock = pygame.time.Clock()
         self.background = pygame.image.load(IMAGES_LVL1["level1_bg"]).convert()
         self.background = pygame.transform.scale(self.background, (SCREEN_WIDTH, SCREEN_HEIGHT))
+        self.init_audio()
 
         # Grupo de sprites
         self.all_sprites = pygame.sprite.Group()
@@ -26,14 +27,6 @@ class Level1(Scene):
                 pygame.quit()
                 sys.exit()
 
-    def init_audio(self):
-        if not pygame.mixer.get_init():
-            pygame.mixer.init()
-        pygame.mixer.music.set_volume(0.3)
-        # Agregarlo a settings
-        pygame.mixer.music.load("assets/sounds/level1_music.mp3")
-        pygame.mixer.music.play(-1)
-
     def update(self):
         self.all_sprites.update()
 
@@ -41,6 +34,14 @@ class Level1(Scene):
         self.screen.blit(self.background, (0, 0))
         self.all_sprites.draw(self.screen)   
         self.draw_cursor()
+
+    def init_audio(self):
+        # Solo inicializa si no se hizo ya
+        if not pygame.mixer.get_init():
+            pygame.mixer.init()
+        pygame.mixer.music.set_volume(0.2)
+        pygame.mixer.music.load(SOUNDS_LVL1["level1_sound"])
+        pygame.mixer.music.play(-1)
 
     def run(self):
         running = True
