@@ -1,11 +1,20 @@
 # --- Imágenes ---
 IMAGES = {
-    "menu_bg": "assets/images/menu_bg.png",
     "icon": "assets/images/icon.png",
+    "cursor": "assets/images/mouse.png",
+    "player": "assets/images/player.png",
+}
+
+IMAGES_MENU = {
+    "menu_bg": "assets/images/menu_bg.png",
+}
+
+IMAGES_LVL1 = {
+    "level1_bg": "assets/images/lvl1.jpg",
 }
 
 # --- Sonidos ---
-SOUNDS = {
+SOUNDS_MENU = {
     "menu_music": "assets/sounds/menu_sound.mp3",
     "menu_move": "assets/sounds/menu_move.mp3",
     "menu_enter":"assets/sounds/menu_enter.mp3",
