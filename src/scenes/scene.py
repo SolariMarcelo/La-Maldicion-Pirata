@@ -12,6 +12,7 @@ class Scene:
         self.cursor_img = pygame.image.load(IMAGES["cursor"]).convert_alpha()
         self.cursor_img = pygame.transform.scale(self.cursor_img, (32, 32))  # tamaño recomendado
         pygame.mouse.set_visible(False)  # ocultar el cursor del sistema
+        self.mouse_visible = True
         # ------------------------------------------------------------
 
     def load_font(self, size=MENU_FONT_SIZE):
@@ -37,8 +38,6 @@ class Scene:
 
     def draw_cursor(self):
         # Dibuja el cursor en la posición actual del mouse.
-        mouse_x, mouse_y = pygame.mouse.get_pos()
-        # Si tu cursor es "puntero", mejor no centrarlo:
-        self.screen.blit(self.cursor_img, (mouse_x, mouse_y))
-        # Si preferís que quede centrado:
-        # self.screen.blit(self.cursor_img, (mouse_x - 16, mouse_y - 16))
+        if self.mouse_visible:
+            mouse_x, mouse_y = pygame.mouse.get_pos()
+            self.screen.blit(self.cursor_img, (mouse_x, mouse_y))

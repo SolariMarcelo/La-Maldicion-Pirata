@@ -130,7 +130,7 @@ class Menu(Scene):
     def run(self):
         running = True
         while running:
-            self.handle_events()  # manejar eventos de teclas
             self.draw() # Dibuja
+            self.handle_events()  # manejar eventos de teclas
             pygame.display.flip() # Actualiza 
             self.clock.tick(FPS) # velocidad del bucle 60 FPS (frames por segundo).

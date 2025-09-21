@@ -14,7 +14,6 @@ class Character(pygame.sprite.Sprite):
         """Mueve al personaje en una dirección (dx, dy)."""
         self.rect.x += dx * self.speed
         self.rect.y += dy * self.speed
-        self.clamp_to_screen()
 
     def clamp_to_screen(self):
         """Mantiene al personaje dentro de la pantalla."""
