@@ -15,10 +15,10 @@ class Player(Character):
         keys = pygame.key.get_pressed()
         dx = 0
 
-        if keys[pygame.K_a] or keys[pygame.K_LEFT]:
-            dx = -1
-        if keys[pygame.K_d] or keys[pygame.K_RIGHT]:
-            dx = 1
+        # if keys[pygame.K_a] or keys[pygame.K_LEFT]:
+        #     dx = -1
+        # if keys[pygame.K_d] or keys[pygame.K_RIGHT]:
+        #     dx = 1
         
         if (keys[pygame.K_w] or keys[pygame.K_UP]) and self.on_ground:
             self.vel_y = self.jump_strength
