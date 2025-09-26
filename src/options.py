@@ -128,4 +128,5 @@ class Options(Scene):
             pygame.display.flip() # Actualiza 
             self.clock.tick(FPS) # velocidad del bucle 60 FPS (frames por segundo).
             if self.selected_index == 3 and self.handle_events() == True:
+
                 running = False
