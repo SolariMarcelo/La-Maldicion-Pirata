@@ -9,7 +9,7 @@ class Menu(Scene):
     def __init__(self, screen):
         super().__init__(screen) 
         self.screen = screen
-        self.clock = pygame.time.Clock() # Velocidad de actualización (FPS).
+        # Velocidad de actualización (FPS).
         self.options = ["Iniciar Partida","Opciones", "Salir"]  # Opciones
         self.selected_index = 0 # Opcion seleccionada
         self.background = pygame.image.load(IMAGES_MENU["menu_bg"]).convert_alpha()
@@ -71,7 +71,7 @@ class Menu(Scene):
         self.move_salir = pygame.mixer.Sound(SOUNDS_MENU["menu_salir"])
     
     # Eventos de teclas
-    def handle_events(self):
+    def handle_events(self,dt):
         for event in pygame.event.get():
             self.handle_global_events(event) 
             if event.type == pygame.QUIT:
@@ -87,7 +87,7 @@ class Menu(Scene):
                     self.selected_index = (self.selected_index + 1) % len(self.options)
                     self.move_sound.play()
                 elif event.key == pygame.K_RETURN:
-                    self.select_option()
+                    self.select_option(dt)
 
             # mouse hover
             elif event.type == pygame.MOUSEMOTION:
@@ -104,9 +104,9 @@ class Menu(Scene):
                     for index, rect in enumerate(self.option_rects):
                         if rect.collidepoint(mouse_pos):
                             self.selected_index = index
-                            self.select_option()
+                            self.select_option(dt)
 
-    def select_option(self):
+    def select_option(self,dt):
         match self.selected_index:
             case 0:
                 print("Iniciar partida")
@@ -114,8 +114,8 @@ class Menu(Scene):
                 # Esperar un poquito que suene
                 pygame.time.delay(200)
                 pygame.mixer.music.stop()  
-                level1 = Level1(self.screen)
-                level1.run()
+                level1 = Level1(self.screen, dt)
+                level1.run(dt)
             case 1:
                 print("Opciones")
                 self.move_enter.play()
@@ -127,10 +127,7 @@ class Menu(Scene):
                 pygame.quit()
                 sys.exit()
 
-    def run(self):
-        running = True
-        while running:
-            self.draw() # Dibuja
-            self.handle_events()  # manejar eventos de teclas
-            pygame.display.flip() # Actualiza 
-            self.clock.tick(FPS) # velocidad del bucle 60 FPS (frames por segundo).
+    def run(self, dt):
+        self.draw() # Dibuja
+        self.handle_events(dt)  # manejar eventos de teclas
+        pygame.display.flip() # Actualiza 

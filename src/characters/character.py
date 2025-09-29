@@ -20,7 +20,7 @@ class Character(pygame.sprite.Sprite):
         screen = pygame.display.get_surface()
         if screen:
             screen_width, screen_height = screen.get_size()
-            self.rect.x = max(-50, min(self.rect.x, screen_width - self.rect.width+40))
+            self.rect.x = max(-50, min(self.rect.x, screen_width - self.rect.width+20))
             self.rect.y = max(0, min(self.rect.y, screen_height - self.rect.height+10))
 
     def update(self):
