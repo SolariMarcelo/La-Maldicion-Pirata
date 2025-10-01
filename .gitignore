@@ -169,3 +169,18 @@ poetry.toml
 
 # LSP config files
 pyrightconfig.json
+
+# Ejecutables generados
+*.exe
+*.dll
+*.pyd
+
+# Logs propios
+*.log
+
+# Archivos de configuración/estado de VS Code
+.vscode/
+
+# Archivos de cache de Python
+__pycache__/
+*.pyc
