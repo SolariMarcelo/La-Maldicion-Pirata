@@ -1,56 +1,38 @@
+# player.py
 import pygame
-from settings import IMAGES, LVL1_GROUND_Y, FPS
+from settings import IMAGES
 from .character import Character
 
 class Player(Character):
-    def __init__(self, x, y,ground,dt):
-        super().__init__(IMAGES["player"], x, y, width=100, height=100, speed=5)
+    def __init__(self, x, y, ground):
+        super().__init__(IMAGES["player"], x, y, width=120, height=120, speed=350)
         self.vel_y = 0
-        self.gravity = 1     
-        self.jump_strength = -15  # impulso del salto (negativo porque sube)
+        self.gravity = 1000
+        self.jump_strength = -500
         self.on_ground = False
         self.ground_y = ground
-        self.posX = 50.0
-        self.speed = 25.0
        
-    def handle_input(self,dt):
+    def handle_input(self, dt):
         keys = pygame.key.get_pressed()
+        dx = 0
         if keys[pygame.K_a] or keys[pygame.K_LEFT]:
-            print(dt)
-            print(self.posX)
-    
-            self.posX = -(self.speed * dt)
-            print(dt)
-            print(self.posX)
-    
+            dx = -1
         if keys[pygame.K_d] or keys[pygame.K_RIGHT]:
-            print(dt)
-            print(self.posX)
-    
-            self.posX = (self.speed * dt)
-            print(dt)
-            print(self.posX)
-        
+            dx = 1
+        self.move(dx, dt)
         if (keys[pygame.K_w] or keys[pygame.K_UP]) and self.on_ground:
             self.vel_y = self.jump_strength
             self.on_ground = False
-
-        if self.posX:
-            self.move(self.posX,0)
     
-    def apply_gravity(self):
-        """Aplica gravedad y limita el suelo"""
-        self.vel_y += self.gravity
-        self.rect.y += self.vel_y
-
-        # Colisión con el suelo
+    def apply_gravity(self, dt):
+        self.vel_y += self.gravity * dt
+        self.rect.y += self.vel_y * dt
         if self.rect.bottom >= self.ground_y:
             self.rect.bottom = self.ground_y
             self.vel_y = 0
             self.on_ground = True
 
-    def update(self,dt):
+    def update(self, dt):
         self.handle_input(dt)
         self.clamp_to_screen()
-        self.apply_gravity()
-
+        self.apply_gravity(dt)

@@ -11,6 +11,7 @@ IMAGES_MENU = {
 
 IMAGES_LVL1 = {
     "level1_bg": "assets/images/lvl1.jpg",
+    "enemy_crab": "assets/images/cangrejo.png",
 }
 
 # --- Sonidos ---
