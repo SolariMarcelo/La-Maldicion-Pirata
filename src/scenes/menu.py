@@ -4,7 +4,7 @@ import sys
 from settings import IMAGES, IMAGES_MENU, SOUNDS_MENU, BLUE, RED, SCREEN_HEIGHT, SCREEN_WIDTH, MENU_MARGIN
 from .scene import Scene
 from .lvl1 import Level1
-
+from .options import Options
 class Menu(Scene):
     def __init__(self, screen):
         super().__init__(screen) 
@@ -95,13 +95,14 @@ class Menu(Scene):
                 level1.run()
             case 1:
                 self.move_enter.play()
+                options = Options(self.screen)
+                options.run()
             case 2:
                 self.move_salir.play()
                 while pygame.mixer.get_busy():
                     pygame.time.delay(50)
                 pygame.quit()
                 sys.exit()
-
     def run(self):
         self.draw()
         self.handle_events()
