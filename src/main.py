@@ -2,7 +2,7 @@
 import pygame
 import sys
 from scenes.menu import Menu
-from settings import SCREEN_HEIGHT, SCREEN_WIDTH, IMAGES, FPS
+from settings import SCREEN_HEIGHT, SCREEN_WIDTH, IMAGES
 
 def main():
     pygame.init()
@@ -11,7 +11,6 @@ def main():
 
     icon = pygame.image.load(IMAGES["icon"]) 
     pygame.display.set_icon(icon)
-    #clock = pygame.time.Clock() 
     menu = Menu(screen)
     
     running = True

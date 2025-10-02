@@ -7,8 +7,8 @@ class Player(Character):
     def __init__(self, x, y, ground):
         super().__init__(IMAGES["player"], x, y, width=120, height=120, speed=350)
         self.vel_y = 0
-        self.gravity = 1000
-        self.jump_strength = -500
+        self.gravity = 2500
+        self.jump_strength = -700
         self.on_ground = False
         self.ground_y = ground
        
