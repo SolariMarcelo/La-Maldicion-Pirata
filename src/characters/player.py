@@ -19,7 +19,7 @@ class Player(Character):
             dx = -1
         if keys[pygame.K_d] or keys[pygame.K_RIGHT]:
             dx = 1
-        self.move(dx, 0, dt)
+        self.move(dx, dt)
         if (keys[pygame.K_w] or keys[pygame.K_UP]) and self.on_ground:
             self.vel_y = self.jump_strength
             self.on_ground = False
