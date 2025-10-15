@@ -93,6 +93,8 @@ class Menu(Scene):
                 pygame.mixer.music.stop()
                 level1 = Level1(self.screen)
                 level1.run()
+                # Al regresar del nivel, reiniciar música del menú
+                self.init_audio()
             case 1:
                 self.move_enter.play()
                 options = Options(self.screen)

@@ -2,7 +2,8 @@
 IMAGES = {
     "icon": "assets/images/icon.png",
     "cursor": "assets/images/mouse.png",
-    "player": "assets/images/player.png",
+    "player-right": "assets/images/pirate-right.png",
+    "player-left": "assets/images/pirate-left.png",
 }
 
 IMAGES_MENU = {
